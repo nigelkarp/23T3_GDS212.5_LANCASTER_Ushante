@@ -19,6 +19,8 @@ public class PlayerInputHandler : MonoBehaviour
     // Handle Yes input, and communicate this to GM
     void OnYesBtnClick()
     {
+        // set active circle out image object  (i can add to on hover)
+        // communicate to the score handler ... 
         // communicate to the game manager ...
         Debug.Log("Yes CLicked");
     }
@@ -26,7 +28,11 @@ public class PlayerInputHandler : MonoBehaviour
     // Handle No input, and communicate this to GM
     void OnNoBtnClick()
     {
+        // set active circle out image object (i can add to on hover)
+        // communicate to the score handler ...
         // communicate to the game manager ...
         Debug.Log("No CLicked");
     }
+
+    // Perhaps a method for on hover that will enable the circle 
 }

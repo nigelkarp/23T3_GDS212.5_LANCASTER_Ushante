@@ -14,11 +14,17 @@ public class PhotographHandler : MonoBehaviour
     // Reference to ArtImage gameobject
     [SerializeField] private GameObject _artImageObject;
 
+    // Boolean to track whether the correctArtImage list is chosen (whether it is an artwork or not)
+    public bool isArtwork; 
+
     // Method to load the next photograph based on the game state
     public void LoadNextPhotograph()
     {
         // Randomly select between displaying correct art or false art
         bool displayCorrectArt = (Random.value > 0.5f);  // 50% chance for either
+
+        // Set the boolean to reflect the current choice
+        isArtwork = displayCorrectArt;
 
         // Determine the game state and select the appropriate list
         List<Sprite> currentImageList = (displayCorrectArt) ? _correctArtImages : _falseArtImages;
@@ -72,4 +78,10 @@ public class PhotographHandler : MonoBehaviour
             _artImageObject.GetComponent<SpriteRenderer>().sprite = Image;
         }
     }
+
+    // Return whether the item is an artwork or not
+    public bool GetIfItemArtwork()
+    {
+        return isArtwork;
+    } 
 }

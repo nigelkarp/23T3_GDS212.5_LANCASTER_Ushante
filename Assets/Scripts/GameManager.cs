@@ -24,10 +24,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if the isgameover bool true
-        // Check if the game is over based on your game's criteria
-        // If IsGameOverConditionMet() {}
-        // if it is met set the bool to true and end game
+        // if the isgameover bool is not true
+        if (!_isGameOver)
+        {
+            // Check if the game is over based on your game's criteria
+            if (GameOverConditionsMet())
+            {
+                // if it is met set the bool to true and end game
+                _isGameOver = true;
+                EndGame();
+            }
+        }
 
         // Call from the players input (from playerinputhandler)
     }
@@ -43,6 +50,8 @@ public class GameManager : MonoBehaviour
     // Game Over logic 
     void EndGame()
     {
+        Debug.Log("game over");
+
         // Display the final score and feedback
         // Calculate whether the player is qualified to be a curator
         // (this can be done with score + predetermined thresholds)
@@ -59,14 +68,15 @@ public class GameManager : MonoBehaviour
     // Load and display the next photograph
     void LoadPhotograph()
     {
-
-        // You'll implement this in the PhotographManager script
+        photographHandler.LoadNextPhotograph();
     }
 
     // Handle a correct answer
     void CorrectAnswer()
     {
-        // Update the score
+        // call from the scorehandler which calls drom the player input handler (get current score)
+
+        // Update the score, do this in the score handler
         _score += 1;
 
         // Enable the UI ArtTitle ThisisArtTitle (disable all others)
@@ -104,7 +114,7 @@ public class GameManager : MonoBehaviour
         // Non artwork will feature extra info e.g. couch ("Although the swedish may disagree, this is just an ikea ... couch")
     }
 
-    bool GameOverConditions()
+    bool GameOverConditionsMet()
     {
         // Game over conditions will be set here
         // Set number of questions / rounds needed to be played

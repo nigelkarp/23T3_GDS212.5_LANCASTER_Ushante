@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreHandler: {fileID: 1095222675}
   photographHandler: {fileID: 915209531}
-  playerInputHandler: {fileID: 0}
+  playerInputHandler: {fileID: 755175116}
 --- !u!114 &373041339 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 17412076253472247, guid: 3828014830fde314ab97839bde8abe61, type: 3}
@@ -869,6 +869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514bf0732af71cb46a28b3004cf8b8fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  photographHandler: {fileID: 915209531}
+  playerInputHandler: {fileID: 755175116}
 --- !u!4 &1095222676
 Transform:
   m_ObjectHideFlags: 0
