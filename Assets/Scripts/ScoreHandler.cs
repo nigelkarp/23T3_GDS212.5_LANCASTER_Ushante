@@ -32,9 +32,11 @@ public class ScoreHandler : MonoBehaviour
     // update the players score (this will depend on the playerinputhandler)
     void IncreasePlayerScore()
     {
-        _playerScore++;
-        Debug.Log("Player Score: " + _playerScore);
-        
+       if (playerInputHandler.HasItBeenAnswered())  // If the player has pressed a button
+        {
+            _playerScore++;
+            Debug.Log("Player Score: " + _playerScore);
+        }
     }
 
     // get the players score function
