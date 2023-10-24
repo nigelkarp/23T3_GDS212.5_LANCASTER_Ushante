@@ -74,6 +74,7 @@ public class PhotographHandler : MonoBehaviour
         if (Image != null)
         {
             // Set the image within the artItem.artimage sprite renderer sprite
+            _artImageObject.GetComponent<SpriteRenderer>().sprite = Image;
         }
     }
 }
