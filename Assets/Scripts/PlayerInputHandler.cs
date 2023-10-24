@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    // Yes button reference
+    // No button reference
+
     // Listen for player input
-    // Listn for button clicks (on the yes and no btns)
+    // Listen for button clicks (on the yes and no btns) by adding listeners to them
 
 
     // Handle Yes input, and communicate this to GM
