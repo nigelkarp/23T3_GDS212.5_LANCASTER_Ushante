@@ -174,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreHandler: {fileID: 1095222675}
   photographHandler: {fileID: 915209531}
+  playerInputHandler: {fileID: 17412076555193677}
 --- !u!1 &478517398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,6 +1151,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3828014830fde314ab97839bde8abe61, type: 3}
+--- !u!114 &17412076555193677 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7770887809406935797, guid: 3828014830fde314ab97839bde8abe61, type: 3}
+  m_PrefabInstance: {fileID: 17412076555193676}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 391d7b50736fee549bc2e0f2a6d234a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &757416030751512148
 PrefabInstance:
   m_ObjectHideFlags: 0

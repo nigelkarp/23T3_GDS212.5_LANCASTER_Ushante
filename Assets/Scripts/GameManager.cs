@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] ScoreHandler scoreHandler;             // Reference to the ScoreHandler script, will use more later
     [SerializeField] PhotographHandler photographHandler;   // Reference to the PhotographHandler script
-    
+    [SerializeField] PlayerInputHandler playerInputHandler; // Reference to the PlayerInputHandler script
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,8 @@ public class GameManager : MonoBehaviour
         // Check if the game is over based on your game's criteria
         // If IsGameOverConditionMet() {}
         // if it is met set the bool to true and end game
+
+        // Call from the players input (from playerinputhandler)
     }
 
 
@@ -54,7 +57,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Load and display the next photograph
-    void LoadNextPhotograph()
+    void LoadPhotograph()
     {
 
         // You'll implement this in the PhotographManager script
@@ -71,7 +74,7 @@ public class GameManager : MonoBehaviour
         // Display art fact or description, this will use the artfacts database later developed
 
         // Load the next photograph
-        LoadNextPhotograph();
+        LoadPhotograph();
     }
 
     // Handle incorrect answer
@@ -84,7 +87,7 @@ public class GameManager : MonoBehaviour
         //DisplayItemName();
 
         // Load the next photograph
-        LoadNextPhotograph();
+        LoadPhotograph();
     }
 
     void DisplayArtFact()
