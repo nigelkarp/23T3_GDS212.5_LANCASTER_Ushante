@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         // (this can be done with score + predetermined thresholds)
         // Threshold hit = feedback given
 
-        // Update the scorehandler with the final score 
+        // Update the scorehandler with the final score or call from the score handler
         // scoreHandler.UpdateScore(score);
 
         // Display feedback based on the final score
@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         // Non artwork will feature extra info e.g. couch ("Although the swedish may disagree, this is just an ikea ... couch")
     }
 
-    bool IsGameOverConditionMet()
+    bool GameOverConditions()
     {
         // Game over conditions will be set here
         // Set number of questions / rounds needed to be played
