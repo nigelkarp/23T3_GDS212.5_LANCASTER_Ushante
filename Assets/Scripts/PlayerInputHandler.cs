@@ -20,11 +20,13 @@ public class PlayerInputHandler : MonoBehaviour
     void OnYesBtnClick()
     {
         // communicate to the game manager ...
+        Debug.Log("Yes CLicked");
     }
 
     // Handle No input, and communicate this to GM
     void OnNoBtnClick()
     {
         // communicate to the game manager ...
+        Debug.Log("No CLicked");
     }
 }

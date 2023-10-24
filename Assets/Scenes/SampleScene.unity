@@ -175,6 +175,17 @@ MonoBehaviour:
   scoreHandler: {fileID: 1095222675}
   photographHandler: {fileID: 915209531}
   playerInputHandler: {fileID: 0}
+--- !u!114 &373041339 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 17412076253472247, guid: 3828014830fde314ab97839bde8abe61, type: 3}
+  m_PrefabInstance: {fileID: 17412076555193676}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &478517398
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +592,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391d7b50736fee549bc2e0f2a6d234a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _yesBtn: {fileID: 1054756615}
+  _noBtn: {fileID: 373041339}
 --- !u!1 &834740905
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,6 +824,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1054756615 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 17412075567546955, guid: 3828014830fde314ab97839bde8abe61, type: 3}
+  m_PrefabInstance: {fileID: 17412076555193676}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1093116489 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 746611254933369334, guid: 3f7314d44bd8c4b448a053c056c213a5, type: 3}
