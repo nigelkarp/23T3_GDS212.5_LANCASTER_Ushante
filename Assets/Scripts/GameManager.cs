@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private int _score = 0;                      // Players score
+    private int _score;                          // Players score
     private bool _isGameOver = false;            // Flag to track the game state 
 
     [SerializeField] ScoreHandler scoreHandler;             // Reference to the ScoreHandler script, will use more later
@@ -14,9 +14,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Initialising the score
-        _score = 0;
-
         // 'Start Game' function  reference
         PlayGame();
     }
@@ -74,7 +71,7 @@ public class GameManager : MonoBehaviour
     // Handle a correct answer
     void CorrectAnswer()
     {
-        // call from the scorehandler which calls drom the player input handler (get current score)
+        
 
         // Update the score, do this in the score handler
         _score += 1;

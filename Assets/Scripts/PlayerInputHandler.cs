@@ -8,6 +8,8 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private Button _yesBtn; // Yes button reference
     [SerializeField] private Button _noBtn;  // No button reference
 
+    public bool isYesClicked;   // Bool to check which button is clicked
+
     // Listen for player input on start
     private void Start()
     {
@@ -19,20 +21,24 @@ public class PlayerInputHandler : MonoBehaviour
     // Handle Yes input, and communicate this to GM
     void OnYesBtnClick()
     {
+        isYesClicked = true;
         // set active circle out image object  (i can add to on hover)
-        // communicate to the score handler ... 
-        // communicate to the game manager ...
         Debug.Log("Yes CLicked");
     }
 
     // Handle No input, and communicate this to GM
     void OnNoBtnClick()
     {
+        isYesClicked = false;
         // set active circle out image object (i can add to on hover)
-        // communicate to the score handler ...
-        // communicate to the game manager ...
         Debug.Log("No CLicked");
     }
 
     // Perhaps a method for on hover that will enable the circle 
+
+    // Return whether the yes or no button has been clicked
+    public bool GetBtnClicked()
+    {
+        return isYesClicked;
+    }
 }
