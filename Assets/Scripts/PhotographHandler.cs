@@ -14,11 +14,6 @@ public class PhotographHandler : MonoBehaviour
     // Reference to ArtImage gameobject
     [SerializeField] private GameObject _artImageObject;
 
-    private void Start()
-    {
-        LoadNextPhotograph();
-    }
-
     // Method to load the next photograph based on the game state
     public void LoadNextPhotograph()
     {

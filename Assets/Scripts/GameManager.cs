@@ -7,8 +7,9 @@ public class GameManager : MonoBehaviour
     private int _score = 0;                      // Players score
     private bool _isGameOver = false;            // Flag to track the game state 
 
-    [SerializeField] ScoreHandler scoreHandler;          // Reference to the ScoreHandler script, will use more later
-
+    [SerializeField] ScoreHandler scoreHandler;             // Reference to the ScoreHandler script, will use more later
+    [SerializeField] PhotographHandler photographHandler;   // Reference to the PhotographHandler script
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
         _score = 0;
 
         // 'Start Game' function  reference
+        PlayGame();
     }
 
     // Update is called once per frame
@@ -29,9 +31,10 @@ public class GameManager : MonoBehaviour
 
 
     // Game initialisation logic 
-    void StartGame()
+    void PlayGame()
     {
         // call the next (randomly chosen) photograph from the photograph handling script
+        photographHandler.LoadNextPhotograph();
     }
 
     // Game Over logic 

@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreHandler: {fileID: 1095222675}
+  photographHandler: {fileID: 915209531}
 --- !u!1 &478517398
 GameObject:
   m_ObjectHideFlags: 0
