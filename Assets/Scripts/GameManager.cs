@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private int score = 0;                      // Players score
-    private bool isGameOver = false;            // Flag to track the game state 
+    private int _score = 0;                      // Players score
+    private bool _isGameOver = false;            // Flag to track the game state 
 
     [SerializeField] ScoreHandler scoreHandler;          // Reference to the ScoreHandler script, will use more later
 
@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Initialising the score
-        score = 0;
+        _score = 0;
 
         // 'Start Game' function  reference
     }
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     void CorrectAnswer()
     {
         // Update the score
-        score += 1;
+        _score += 1;
 
         // Enable the UI ArtTitle ThisisArtTitle (disable all others)
 

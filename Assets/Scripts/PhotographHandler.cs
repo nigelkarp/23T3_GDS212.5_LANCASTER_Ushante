@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PhotographHandler : MonoBehaviour
 {
-    // Reference chat gpt for this code, do I include my changes??
-    
-    //----Chat gpt
     // Separate lists for correct art and false art
-    public List<Sprite> correctArtImages; // List of correct art images
-    public List<Sprite> falseArtImages;   // List of false art images
+    [SerializeField] private List<Sprite> _correctArtImages; // List of correct art images
+    [SerializeField] private List<Sprite> _falseArtImages;   // List of false art images
 
     // Variables to keep track of displayed photos
     List<Sprite> displayedPhotos = new List<Sprite>();
+
+    // Reference to ArtImage gameobject
+    [SerializeField] private GameObject _artImageObject;
 
     private void Start()
     {
@@ -26,7 +26,7 @@ public class PhotographHandler : MonoBehaviour
         bool displayCorrectArt = (Random.value > 0.5f);  // 50% chance for either
 
         // Determine the game state and select the appropriate list
-        List<Sprite> currentImageList = (displayCorrectArt) ? correctArtImages : falseArtImages;
+        List<Sprite> currentImageList = (displayCorrectArt) ? _correctArtImages : _falseArtImages;
 
 
         // Check if all photos have been displayed; if so, reset the displayed photos list
@@ -67,7 +67,6 @@ public class PhotographHandler : MonoBehaviour
             list[j] = temp;
         }
     }
-    //----Chat gpt 
 
     // My own method, to display Image
     void DisplayImage(Sprite Image)
