@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] PhotographHandler photographHandler;   // Reference to the PhotographHandler script
     [SerializeField] PlayerInputHandler playerInputHandler; // Reference to the PlayerInputHandler script
 
+    [SerializeField] private GameObject ArtTitle; // UI title gameobject (with different title children)
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,11 +89,12 @@ public class GameManager : MonoBehaviour
 
             // Enable the UI ArtTitle ThisisArtTitle (disable all others)
 
+            // Change position of the Art item (to pos2)
+
             // Display art fact or description, this will use the artfacts database later developed
 
             // Load the next photograph
             LoadPhotograph();
-
         }
         
     }
@@ -99,33 +102,28 @@ public class GameManager : MonoBehaviour
     // Handle incorrect answer
     void IncorrectAnswer()
     {
+        // Check if the incorrect answer has been made (get from scorehandler)
         if (!scoreHandler.IsCorrectAnswer())
         {
-            // Check if the incorrect answer has been made (get from scorehandler)
+            Debug.Log("incorrect answer chosen");
 
-            // Display what the item is
             // Enable the UI ArtTitle child ThisIsntArtTitle (disable all others)
 
-            // Display name of the item, probably from a name database or the name of the image
-            //DisplayItemName();
+            // Change position of the Art item (to pos2)
 
-            // Load the next photograph
+            // Display information about the object
+            DisplayAboutItem();
+
+            // Load the next photograph (maybe make it so the player has to click something for this to happen)
             LoadPhotograph();
         }
     }
 
-    void DisplayArtFact()
+    void DisplayAboutItem()
     {
         // Display an art fact or description from the ArtFacts database
         // This will be implemented in this script/ will call from the artfactsdatabase script
-    }
-
-    void DisplayItemName()
-    {
-        // Display what the items name is
-        // Either get the name from database or the name of the image and display it
-        // This will work for both of the item types, but a non artwork will only display this.
-        // Non artwork will feature extra info e.g. couch ("Although the swedish may disagree, this is just an ikea ... couch")
+        // Used for all Items (artworks and nonartworks)
     }
 
     bool GameOverConditionsMet()

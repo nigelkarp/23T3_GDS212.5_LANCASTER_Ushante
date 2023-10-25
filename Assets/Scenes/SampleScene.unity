@@ -175,6 +175,7 @@ MonoBehaviour:
   scoreHandler: {fileID: 1095222675}
   photographHandler: {fileID: 915209531}
   playerInputHandler: {fileID: 755175116}
+  ArtTitle: {fileID: 0}
 --- !u!114 &373041339 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 17412076253472247, guid: 3828014830fde314ab97839bde8abe61, type: 3}

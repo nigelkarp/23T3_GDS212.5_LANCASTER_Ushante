@@ -31,7 +31,7 @@ public class PlayerInputHandler : MonoBehaviour
 
         // set active circle out image object  (i can add to on hover)
 
-        Debug.Log("Yes CLicked");     
+        Debug.Log("Yes Clicked");     
     }
 
     // Handle No input, and communicate this to GM
@@ -45,7 +45,7 @@ public class PlayerInputHandler : MonoBehaviour
 
         // set active circle out image object (i can add to on hover)
 
-        Debug.Log("No CLicked");
+        Debug.Log("No Clicked");
     }
 
     // Perhaps a method for on hover that will enable the circle 

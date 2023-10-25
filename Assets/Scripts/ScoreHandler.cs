@@ -40,6 +40,7 @@ public class ScoreHandler : MonoBehaviour
             else
             {
                 _isCorrectAnswer = false;
+                hasAnswered = true;
             }
         }
     }
