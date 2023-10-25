@@ -12,21 +12,18 @@ public class ScoreHandler : MonoBehaviour
     private bool _isYesButtonClickValue;
 
     private int _playerScore;               // Players score variable
-    private bool hasAnswered = false;
-    
+    private bool _isCorrectAnswer;           // Is the players answer correct
+
+    public bool hasAnswered = false;       // Has the player answered
+
     // Initialize players score (set score as 0)
     private void Start()
     {
         _playerScore = 0;
     }
 
-    private void Update()
-    {
-        IncreasePlayerScore();
-    }
-
     // update the players score (this will depend on the playerinputhandler)
-    void IncreasePlayerScore()
+    public void IncreasePlayerScore()
     {
         _isArtworkValue = photographHandler.GetIfItemArtwork();
         _isYesButtonClickValue = playerInputHandler.GetBtnClicked();
@@ -37,7 +34,12 @@ public class ScoreHandler : MonoBehaviour
             {
                 _playerScore++;
                 Debug.Log("Player Score: " + _playerScore);
+                _isCorrectAnswer = true;
                 hasAnswered = true;
+            } 
+            else
+            {
+                _isCorrectAnswer = false;
             }
         }
     }
@@ -47,5 +49,21 @@ public class ScoreHandler : MonoBehaviour
     public int GetPlayerScore()
     {
         return _playerScore;
+    }
+
+    public bool IsCorrectAnswer()
+    {
+        return _isCorrectAnswer;
+    }
+
+    public bool HasAnswered()
+    {
+        return hasAnswered;
+    }
+
+    // Function to set has answered to false
+    public void resetAnswering()
+    {
+        hasAnswered = false;
     }
 }

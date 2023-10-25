@@ -8,6 +8,8 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private Button _yesBtn; // Yes button reference
     [SerializeField] private Button _noBtn;  // No button reference
 
+    [SerializeField] ScoreHandler scoreHandler;     // Reference to the ScoreHandler script, will use more later
+
     private bool isYesClicked;          // Bool to check which button is clicked
     // private bool hasAnswered = false;   // Bool to check if the player has already answered
 
@@ -24,7 +26,11 @@ public class PlayerInputHandler : MonoBehaviour
     {
         isYesClicked = true;
 
+        // Play Increaseplayerscore func from scorehandler
+        scoreHandler.IncreasePlayerScore();
+
         // set active circle out image object  (i can add to on hover)
+
         Debug.Log("Yes CLicked");     
     }
 
@@ -33,7 +39,12 @@ public class PlayerInputHandler : MonoBehaviour
     {
 
         isYesClicked = false;
+
+        // Play Increaseplayerscore func from scorehandler
+        scoreHandler.IncreasePlayerScore();
+
         // set active circle out image object (i can add to on hover)
+
         Debug.Log("No CLicked");
     }
 

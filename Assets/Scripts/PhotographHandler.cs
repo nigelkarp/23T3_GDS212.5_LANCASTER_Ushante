@@ -14,6 +14,8 @@ public class PhotographHandler : MonoBehaviour
     // Reference to ArtImage gameobject
     [SerializeField] private GameObject _artImageObject;
 
+    [SerializeField] ScoreHandler scoreHandler; // Reference to the ScoreHandler script
+
     // Boolean to track whether the correctArtImage list is chosen (whether it is an artwork or not)
     public bool isArtwork; 
 
@@ -54,6 +56,9 @@ public class PhotographHandler : MonoBehaviour
         // Display the selected image
         DisplayImage(nextImage);
         Debug.Log(nextImage.name);
+
+        // set score handler has answered to false
+        scoreHandler.resetAnswering();
     }
 
     // Method to shuffle a list using the Fisher-Yates shuffle algorithm

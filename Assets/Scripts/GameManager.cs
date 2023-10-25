@@ -21,6 +21,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Check that the player has answered 
+        if (scoreHandler.HasAnswered())
+        {
+            CorrectAnswer();
+            IncorrectAnswer();
+        }
+
         // if the isgameover bool is not true
         if (!_isGameOver)
         {
@@ -66,27 +73,34 @@ public class GameManager : MonoBehaviour
     void LoadPhotograph()
     {
         photographHandler.LoadNextPhotograph();
+        
+        //Change has answered to false in the photograph handler
     }
 
     // Handle a correct answer
     void CorrectAnswer()
     {
+        // Check if the correct answer has been made (get from scorehandler)
+        if (scoreHandler.IsCorrectAnswer())
+        {
+            Debug.Log("correct answer chosen");
+
+            // Enable the UI ArtTitle ThisisArtTitle (disable all others)
+
+            // Display art fact or description, this will use the artfacts database later developed
+
+            // Load the next photograph
+            LoadPhotograph();
+
+        }
         
-
-        // Update the score, do this in the score handler
-        _score += 1;
-
-        // Enable the UI ArtTitle ThisisArtTitle (disable all others)
-
-        // Display art fact or description, this will use the artfacts database later developed
-
-        // Load the next photograph
-        LoadPhotograph();
     }
 
     // Handle incorrect answer
     void IncorrectAnswer()
     {
+        // Check if the incorrect answer has been made (get from scorehandler)
+
         // Display what the item is
         // Enable the UI ArtTitle child ThisIsntArtTitle (disable all others)
 
