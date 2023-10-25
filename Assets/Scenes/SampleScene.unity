@@ -175,7 +175,7 @@ MonoBehaviour:
   scoreHandler: {fileID: 1095222675}
   photographHandler: {fileID: 915209531}
   playerInputHandler: {fileID: 755175116}
-  ArtTitle: {fileID: 0}
+  ArtTitle: {fileID: 645417386}
 --- !u!114 &373041339 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 17412076253472247, guid: 3828014830fde314ab97839bde8abe61, type: 3}
@@ -543,6 +543,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7899197243644777566, guid: 0e1b942f389d9aa4bb15081cd8e115b3, type: 3}
   m_PrefabInstance: {fileID: 645417384}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &645417386 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6501342090202867503, guid: 0e1b942f389d9aa4bb15081cd8e115b3, type: 3}
+  m_PrefabInstance: {fileID: 645417384}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &755175114
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,24 +707,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5bce8f2a64900547a68125391d17e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _correctArtImages:
-  - {fileID: 21300000, guid: f83bff1b2c56653418686c604c6cadcd, type: 3}
-  - {fileID: 21300000, guid: 9e560b1927849d34cb892290eede03d3, type: 3}
-  - {fileID: 21300000, guid: 18a3e5aa8e0aa61418c03d3fec431c7c, type: 3}
-  - {fileID: 21300000, guid: b19f75e3d1ccd83418803b98fd9d41a2, type: 3}
-  - {fileID: 21300000, guid: 8c5f78cd9d6c5b44d90b7d32af9ab56c, type: 3}
-  - {fileID: 21300000, guid: 21d820877eb698845a14fdbf71f14e03, type: 3}
-  - {fileID: 21300000, guid: cdf5437cd6e8a90499587bd8def98403, type: 3}
-  _falseArtImages:
-  - {fileID: 21300000, guid: fab2d92ff0f4a1141a5fae51715b5d79, type: 3}
-  - {fileID: 21300000, guid: a5a12bd23a45ba04fb69a17a8012b049, type: 3}
-  - {fileID: 21300000, guid: 57b100d756ac91f4cacff3a03410ae89, type: 3}
-  - {fileID: 21300000, guid: 5357a8471aa2eb34199e10d5248b1f3a, type: 3}
-  - {fileID: 21300000, guid: 228c3bb9d85f8ae4c8801a2d5ee71b17, type: 3}
-  - {fileID: 21300000, guid: 9960c54b71330754d96a7db51a608528, type: 3}
+  _itemList:
+  - {fileID: 11400000, guid: 87648740e14ee9947975c37215f33dae, type: 2}
+  - {fileID: 11400000, guid: 41e69f705014a72459657b88d0fe4848, type: 2}
+  - {fileID: 11400000, guid: 38948d2a894ef9640a0a2f23c6c712c6, type: 2}
+  - {fileID: 11400000, guid: 48e36827ef869eb4f97445b9e67d4921, type: 2}
+  - {fileID: 11400000, guid: 5fdef58dc0edd624d8a4b70af1fbdf61, type: 2}
+  - {fileID: 11400000, guid: e79c4f6c44c9f1149af30ba183ba1d01, type: 2}
+  - {fileID: 11400000, guid: 6bd261e80f53bd14cbb4fca625fff3cc, type: 2}
+  - {fileID: 11400000, guid: 9332a2a927daf8a4eb9ea2305c0d1e71, type: 2}
+  - {fileID: 11400000, guid: 621de74628a81f646bdf7c3fea595f62, type: 2}
+  - {fileID: 11400000, guid: 9b54d371c6465d8419478571d73f01e5, type: 2}
+  - {fileID: 11400000, guid: e3aeba0d2fb7b3549b88ce3124db0afd, type: 2}
+  - {fileID: 11400000, guid: 0c702b41659aece42982cab7f52a2d7f, type: 2}
+  - {fileID: 11400000, guid: 8b50ef6a1dac5b744b47d6918d97a8c1, type: 2}
   _artImageObject: {fileID: 1093116489}
   scoreHandler: {fileID: 1095222675}
-  isArtwork: 0
 --- !u!1 &1019972505
 GameObject:
   m_ObjectHideFlags: 0

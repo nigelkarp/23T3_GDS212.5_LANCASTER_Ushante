@@ -25,7 +25,7 @@ public class ScoreHandler : MonoBehaviour
     // update the players score (this will depend on the playerinputhandler)
     public void IncreasePlayerScore()
     {
-        _isArtworkValue = photographHandler.GetIfItemArtwork();
+        _isArtworkValue = photographHandler.GetNextUnusedItem().IsArt;
         _isYesButtonClickValue = playerInputHandler.GetBtnClicked();
 
         if (!hasAnswered)    // Check if the player has answered

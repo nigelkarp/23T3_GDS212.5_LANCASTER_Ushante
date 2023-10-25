@@ -4,67 +4,40 @@ using UnityEngine;
 
 public class PhotographHandler : MonoBehaviour
 {
-    // Separate lists for correct art and false art
-    [SerializeField] private List<Sprite> _correctArtImages; // List of correct art images
-    [SerializeField] private List<Sprite> _falseArtImages;   // List of false art images
+    [SerializeField] private List<PhotographSO> _itemList; // List of Scriptable Objects
 
-    // Variables to keep track of displayed photos
-    List<Sprite> displayedPhotos = new List<Sprite>();
+    List<PhotographSO> displayedItem = new List<PhotographSO>();
 
-    // Reference to ArtImage gameobject
-    [SerializeField] private GameObject _artImageObject;
-
-    [SerializeField] ScoreHandler scoreHandler; // Reference to the ScoreHandler script
-
-    // Boolean to track whether the correctArtImage list is chosen (whether it is an artwork or not)
-    public bool isArtwork; 
+ 
+    [SerializeField] private GameObject _artImageObject;   // Reference to ArtImage gameobject
+    [SerializeField] ScoreHandler scoreHandler;            // Reference to the ScoreHandler script
 
     // Method to load the next photograph based on the game state
     public void LoadNextPhotograph()
     {
-        // Randomly select between displaying correct art or false art
-        bool displayCorrectArt = (Random.value > 0.5f);  // 50% chance for either
-
-        // Set the boolean to reflect the current choice
-        isArtwork = displayCorrectArt;
-
-        // Set amount of images to cycle through
-        int itemsTotalCount = _correctArtImages.Count + _falseArtImages.Count;
-
-        // Determine the game state and select the appropriate list
-        List<Sprite> currentImageList = (displayCorrectArt) ? _correctArtImages : _falseArtImages;
-
-
-        // Check if all photos have been displayed; if so, reset the displayed photos list
-        if (displayedPhotos.Count == itemsTotalCount)
+        // Reminder to populate artwork list
+        if (_itemList.Count == 0)
         {
-            displayedPhotos.Clear();
-            // Id probably just end the game instead.
+            Debug.LogWarning("Artwork List is empty");
+            return;
         }
 
-        // Randomly shuffle the current image list until an unused photo is found
-        ShuffleList(currentImageList);
+        // Randomly shuggle list 
+        ShuffleList(_itemList);
 
-        // Find the first unused photo
-        Sprite nextImage = null;
+        PhotographSO nextItem = GetNextUnusedItem();
 
-        foreach (var image in currentImageList)
+        if (nextItem != null)
         {
-            if (!displayedPhotos.Contains(image))
-            {
-                nextImage = image;
-                displayedPhotos.Add(image);
-                break;
-            }
+            // Set the boolean to reflect whether it is an artwork or not
+            bool isArtwork = nextItem.IsArt;
+
+            // Display the selected image
+            DisplayImage(nextItem.Image);
+
+            // Set Score handler has answered to false
+            scoreHandler.resetAnswering();
         }
-
-        // Display the selected image
-        DisplayImage(nextImage);
-        Debug.Log(nextImage.name);
-        Debug.Log("Photos already displayed amount:" + displayedPhotos.Count);
-
-        // set score handler has answered to false
-        scoreHandler.resetAnswering();
     }
 
     // Method to shuffle a list using the Fisher-Yates shuffle algorithm
@@ -80,6 +53,20 @@ public class PhotographHandler : MonoBehaviour
         }
     }
 
+    // Get the next unused artwork
+    public PhotographSO GetNextUnusedItem()
+    {
+        foreach (var item in _itemList)
+        {
+            if (!displayedItem.Contains(item))
+            {
+                displayedItem.Add(item);
+                return item;
+            }
+        }
+        return null;
+    }
+
     // My method, to display Image
     void DisplayImage(Sprite Image)
     {
@@ -89,10 +76,4 @@ public class PhotographHandler : MonoBehaviour
             _artImageObject.GetComponent<SpriteRenderer>().sprite = Image;
         }
     }
-
-    // Return whether the item is an artwork or not
-    public bool GetIfItemArtwork()
-    {
-        return isArtwork;
-    } 
 }
