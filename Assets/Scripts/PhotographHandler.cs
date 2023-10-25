@@ -28,14 +28,18 @@ public class PhotographHandler : MonoBehaviour
         // Set the boolean to reflect the current choice
         isArtwork = displayCorrectArt;
 
+        // Set amount of images to cycle through
+        int itemsTotalCount = _correctArtImages.Count + _falseArtImages.Count;
+
         // Determine the game state and select the appropriate list
         List<Sprite> currentImageList = (displayCorrectArt) ? _correctArtImages : _falseArtImages;
 
 
         // Check if all photos have been displayed; if so, reset the displayed photos list
-        if (displayedPhotos.Count == currentImageList.Count)
+        if (displayedPhotos.Count == itemsTotalCount)
         {
             displayedPhotos.Clear();
+            // Id probably just end the game instead.
         }
 
         // Randomly shuffle the current image list until an unused photo is found
@@ -43,6 +47,7 @@ public class PhotographHandler : MonoBehaviour
 
         // Find the first unused photo
         Sprite nextImage = null;
+
         foreach (var image in currentImageList)
         {
             if (!displayedPhotos.Contains(image))
@@ -56,6 +61,7 @@ public class PhotographHandler : MonoBehaviour
         // Display the selected image
         DisplayImage(nextImage);
         Debug.Log(nextImage.name);
+        Debug.Log("Photos already displayed amount:" + displayedPhotos.Count);
 
         // set score handler has answered to false
         scoreHandler.resetAnswering();
@@ -74,7 +80,7 @@ public class PhotographHandler : MonoBehaviour
         }
     }
 
-    // My own method, to display Image
+    // My method, to display Image
     void DisplayImage(Sprite Image)
     {
         if (Image != null)

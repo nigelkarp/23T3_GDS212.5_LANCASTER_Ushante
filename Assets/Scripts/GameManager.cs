@@ -99,16 +99,19 @@ public class GameManager : MonoBehaviour
     // Handle incorrect answer
     void IncorrectAnswer()
     {
-        // Check if the incorrect answer has been made (get from scorehandler)
+        if (!scoreHandler.IsCorrectAnswer())
+        {
+            // Check if the incorrect answer has been made (get from scorehandler)
 
-        // Display what the item is
-        // Enable the UI ArtTitle child ThisIsntArtTitle (disable all others)
+            // Display what the item is
+            // Enable the UI ArtTitle child ThisIsntArtTitle (disable all others)
 
-        // Display name of the item, probably from a name database or the name of the image
-        //DisplayItemName();
+            // Display name of the item, probably from a name database or the name of the image
+            //DisplayItemName();
 
-        // Load the next photograph
-        LoadPhotograph();
+            // Load the next photograph
+            LoadPhotograph();
+        }
     }
 
     void DisplayArtFact()
