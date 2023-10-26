@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ArtTitle: {fileID: 645417386}
+  photographHandler: {fileID: 915209531}
   selectedTitle: 0
 --- !u!1 &108036257
 GameObject:
@@ -936,6 +937,7 @@ MonoBehaviour:
   _noBtn: {fileID: 373041339}
   _nextItemBtn: {fileID: 108036259}
   scoreHandler: {fileID: 1095222675}
+  titleHandler: {fileID: 32823115}
 --- !u!1 &834740905
 GameObject:
   m_ObjectHideFlags: 0

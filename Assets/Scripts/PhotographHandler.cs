@@ -34,6 +34,7 @@ public class PhotographHandler : MonoBehaviour
 
         if (nextItem != null)
         {
+
             // Set the boolean to reflect whether it is an artwork or not
             isArtwork = nextItem.IsArt;
             
@@ -43,21 +44,12 @@ public class PhotographHandler : MonoBehaviour
             // Display the selected image
             DisplayImage(nextItem.Image);
 
-            // Set which title should be displayed
-            if (isArtwork)
-            {
-                titleHandler.selectedTitle = 1;
-            }
-            else
-            {
-                titleHandler.selectedTitle = 2;
-            }
-
             // Set Score handler has answered to false
             scoreHandler.resetAnswering();
 
             // Set isnext clicked to false
             playerInputHandler.resetNextClick();
+
         }
     }
 

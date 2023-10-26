@@ -5,7 +5,9 @@ using UnityEngine;
 public class TitleHandler : MonoBehaviour
 {
     [SerializeField] private GameObject ArtTitle; // UI title gameobject (with different title children)
-    
+
+    [SerializeField] PhotographHandler photographHandler;
+
     public int selectedTitle;                   // Current title selected
 
     // set the title depending on game state
@@ -27,7 +29,6 @@ public class TitleHandler : MonoBehaviour
         //IF the item is an artwork title
         if (selectedTitle == 1)
         {
-
             thisIsArtTitle.gameObject.SetActive(true);
 
             isThisArtTitle.gameObject.SetActive(false);
@@ -45,4 +46,30 @@ public class TitleHandler : MonoBehaviour
         }
     }
 
+    public void SetTitleIfArt()
+    {
+        // Checks if the current item is an artwork
+        if (photographHandler.IsCurrentArtwork())
+        {
+            ThisIsArtTitle();
+        }
+        else
+        {
+            ThisIsntArtTitle();
+        }
+    }
+
+    public void ResetTitle()
+    {
+        selectedTitle = 0;
+    }
+
+    void ThisIsArtTitle()
+    {
+        selectedTitle = 1;
+    }
+    void ThisIsntArtTitle()
+    {
+        selectedTitle = 2;
+    }
 }

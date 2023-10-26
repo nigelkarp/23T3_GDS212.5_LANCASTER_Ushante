@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     {
         // 'Start Game' function  reference
         PlayGame();
-        titleHandler.selectedTitle = 0;
+        titleHandler.ResetTitle();
     }
 
     // Update is called once per frame
@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
     {
         if (playerInputHandler.GetNextItemClick())
         {
+            titleHandler.ResetTitle();
             photographHandler.LoadNextPhotograph();
         }
         //Change has answered to false in the photograph handler
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
         // Check if the correct answer has been made (get from scorehandler)
         if (scoreHandler.IsCorrectAnswer())
         {
-            Debug.Log("correct answer chosen");
+            // Call function that checks if its an artwork or not
             
             // Change position of the Art item (to pos2)
 
@@ -107,8 +108,6 @@ public class GameManager : MonoBehaviour
         // Check if the incorrect answer has been made (get from scorehandler)
         if (!scoreHandler.IsCorrectAnswer())
         {
-            Debug.Log("incorrect answer chosen");
-
             // Change position of the Art item (to pos2)
 
             // Display information about the object

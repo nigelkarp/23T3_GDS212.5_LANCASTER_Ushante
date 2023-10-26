@@ -10,6 +10,7 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private Button _nextItemBtn;   // Next item button reference
 
     [SerializeField] ScoreHandler scoreHandler;     // Reference to the ScoreHandler script, will use more later
+    [SerializeField] TitleHandler titleHandler;     // Reference to the TitleHandler script
 
     private bool isYesClicked;                  // Bool to check which button is clicked
     private bool isNextClicked;         // Bool to check if button is clicked
@@ -19,6 +20,7 @@ public class PlayerInputHandler : MonoBehaviour
     // Listen for player input on start
     private void Start()
     {
+        
         isNextClicked = false;
 
         // Listen for button clicks (on the yes and no btns) by adding listeners to them
@@ -36,6 +38,9 @@ public class PlayerInputHandler : MonoBehaviour
         // Play Increaseplayerscore func from scorehandler
         scoreHandler.IncreasePlayerScore();
 
+        // Check if it is art and set title
+        titleHandler.SetTitleIfArt();
+
         // set active circle out image object  (i can add to on hover)
 
         Debug.Log("Yes Clicked");     
@@ -50,6 +55,9 @@ public class PlayerInputHandler : MonoBehaviour
         // Play Increaseplayerscore func from scorehandler
         scoreHandler.IncreasePlayerScore();
 
+        // Check if it is art and set title
+        titleHandler.SetTitleIfArt();
+
         // set active circle out image object (i can add to on hover)
 
         Debug.Log("No Clicked");
@@ -60,6 +68,8 @@ public class PlayerInputHandler : MonoBehaviour
     // Handle player nect image input, communicate to GM
     void OnNextItemClick()
     {
+        titleHandler.ResetTitle();
+
         Debug.Log("Next btn clicked");
         isNextClicked = true;
     }
