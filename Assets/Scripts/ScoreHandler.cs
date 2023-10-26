@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class ScoreHandler : MonoBehaviour
@@ -25,7 +26,7 @@ public class ScoreHandler : MonoBehaviour
     // update the players score (this will depend on the playerinputhandler)
     public void IncreasePlayerScore()
     {
-        _isArtworkValue = photographHandler.GetNextUnusedItem().IsArt;
+        _isArtworkValue = photographHandler.IsCurrentArtwork();
         _isYesButtonClickValue = playerInputHandler.GetBtnClicked();
 
         if (!hasAnswered)    // Check if the player has answered

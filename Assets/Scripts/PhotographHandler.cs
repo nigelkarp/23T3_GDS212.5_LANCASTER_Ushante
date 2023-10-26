@@ -12,6 +12,8 @@ public class PhotographHandler : MonoBehaviour
     [SerializeField] private GameObject _artImageObject;   // Reference to ArtImage gameobject
     [SerializeField] ScoreHandler scoreHandler;            // Reference to the ScoreHandler script
 
+    public bool isArtwork; // bool to check if the item is an artwork or not
+    
     // Method to load the next photograph based on the game state
     public void LoadNextPhotograph()
     {
@@ -30,7 +32,7 @@ public class PhotographHandler : MonoBehaviour
         if (nextItem != null)
         {
             // Set the boolean to reflect whether it is an artwork or not
-            bool isArtwork = nextItem.IsArt;
+            isArtwork = nextItem.IsArt;
 
             // Display the selected image
             DisplayImage(nextItem.Image);
@@ -75,5 +77,10 @@ public class PhotographHandler : MonoBehaviour
             // Set the image within the artItem.artimage sprite renderer sprite
             _artImageObject.GetComponent<SpriteRenderer>().sprite = Image;
         }
+    }
+
+    public bool IsCurrentArtwork()
+    {
+        return isArtwork;
     }
 }
