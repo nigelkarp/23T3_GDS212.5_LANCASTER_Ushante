@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] ScoreHandler scoreHandler;             // Reference to the ScoreHandler script, will use more later
     [SerializeField] PhotographHandler photographHandler;   // Reference to the PhotographHandler script
     [SerializeField] PlayerInputHandler playerInputHandler; // Reference to the PlayerInputHandler script
+    [SerializeField] FeedbackHandler feedbackHandler;       // Reference to the FeedbackHandler script
 
     [SerializeField] private GameObject ArtTitle; // UI title gameobject (with different title children)
 
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
         if (!_isGameOver)
         {
             // Check if the game is over based on your game's criteria
-            if (GameOverConditionsMet())
+            if (GameOverConditionsMet() == true)
             {
                 // if it is met set the bool to true and end game
                 _isGameOver = true;
@@ -74,8 +75,10 @@ public class GameManager : MonoBehaviour
     // Load and display the next photograph
     void LoadPhotograph()
     {
-        photographHandler.LoadNextPhotograph();
-        
+        if (playerInputHandler.GetNextItemClick())
+        {
+            photographHandler.LoadNextPhotograph();
+        }
         //Change has answered to false in the photograph handler
     }
 
@@ -85,15 +88,15 @@ public class GameManager : MonoBehaviour
         // Check if the correct answer has been made (get from scorehandler)
         if (scoreHandler.IsCorrectAnswer())
         {
-            Debug.Log("correct answer chosen");
+            //Debug.Log("correct answer chosen");
 
             // Enable the UI ArtTitle ThisisArtTitle (disable all others)
 
             // Change position of the Art item (to pos2)
 
             // Display art fact or description, this will use the artfacts database later developed
+            feedbackHandler.UpdateFeedback();
 
-            // Load the next photograph
             LoadPhotograph();
         }
         
@@ -105,31 +108,32 @@ public class GameManager : MonoBehaviour
         // Check if the incorrect answer has been made (get from scorehandler)
         if (!scoreHandler.IsCorrectAnswer())
         {
-            Debug.Log("incorrect answer chosen");
+            //Debug.Log("incorrect answer chosen");
 
             // Enable the UI ArtTitle child ThisIsntArtTitle (disable all others)
 
             // Change position of the Art item (to pos2)
 
             // Display information about the object
-            DisplayAboutItem();
+            feedbackHandler.UpdateFeedback();
 
-            // Load the next photograph (maybe make it so the player has to click something for this to happen)
             LoadPhotograph();
         }
     }
 
-    void DisplayAboutItem()
-    {
-        // Display an art fact or description from the ArtFacts database
-        // This will be implemented in this script/ will call from the artfactsdatabase script
-        // Used for all Items (artworks and nonartworks)
-    }
+    //void DisplayAboutItem()
+    //{
+    //    feedbackHandler.UpdateFeedback();
+    //}
 
+    // Game over conditions will be set here
     bool GameOverConditionsMet()
     {
-        // Game over conditions will be set here
         // Set number of questions / rounds needed to be played
+        if (photographHandler.IsListFinished())
+        {
+            return true;
+        }
         return false;
     }
 }

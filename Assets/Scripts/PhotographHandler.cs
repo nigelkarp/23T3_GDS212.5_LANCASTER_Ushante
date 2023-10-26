@@ -11,6 +11,7 @@ public class PhotographHandler : MonoBehaviour
  
     [SerializeField] private GameObject _artImageObject;   // Reference to ArtImage gameobject
     [SerializeField] ScoreHandler scoreHandler;            // Reference to the ScoreHandler script
+    [SerializeField] PlayerInputHandler playerInputHandler; 
 
     public bool isArtwork; // bool to check if the item is an artwork or not
     private PhotographSO _currentItem;
@@ -43,6 +44,9 @@ public class PhotographHandler : MonoBehaviour
 
             // Set Score handler has answered to false
             scoreHandler.resetAnswering();
+
+            // Set isnext clicked to false
+            playerInputHandler.resetNextClick();
         }
     }
 
@@ -67,8 +71,11 @@ public class PhotographHandler : MonoBehaviour
             if (!displayedItem.Contains(item))
             {
                 displayedItem.Add(item);
+                Debug.Log("displayed item count:" + displayedItem.Count);
+                Debug.Log("Itemlist count:" + _itemList.Count);
                 return item;
             }
+            return null;
         }
         return null;
     }
@@ -93,5 +100,15 @@ public class PhotographHandler : MonoBehaviour
     public ScriptableObject CurrentItem()
     {
         return _currentItem;
+    }
+
+    public bool IsListFinished()
+    {
+        if (_itemList.Count == displayedItem.Count)
+            {
+                return true;
+            }
+        
+        return false;
     }
 }
