@@ -13,6 +13,7 @@ public class PhotographHandler : MonoBehaviour
     [SerializeField] ScoreHandler scoreHandler;            // Reference to the ScoreHandler script
 
     public bool isArtwork; // bool to check if the item is an artwork or not
+    private PhotographSO _currentItem;
     
     // Method to load the next photograph based on the game state
     public void LoadNextPhotograph()
@@ -33,6 +34,9 @@ public class PhotographHandler : MonoBehaviour
         {
             // Set the boolean to reflect whether it is an artwork or not
             isArtwork = nextItem.IsArt;
+            
+            // Set the current artwork displayed
+            _currentItem = nextItem;
 
             // Display the selected image
             DisplayImage(nextItem.Image);
@@ -69,7 +73,7 @@ public class PhotographHandler : MonoBehaviour
         return null;
     }
 
-    // My method, to display Image
+    // Display Image
     void DisplayImage(Sprite Image)
     {
         if (Image != null)
@@ -79,8 +83,15 @@ public class PhotographHandler : MonoBehaviour
         }
     }
 
+    // Returns isArt bool from the current item
     public bool IsCurrentArtwork()
     {
         return isArtwork;
+    }
+
+    // Returns the current Photograph Scriptable object
+    public ScriptableObject CurrentItem()
+    {
+        return _currentItem;
     }
 }
