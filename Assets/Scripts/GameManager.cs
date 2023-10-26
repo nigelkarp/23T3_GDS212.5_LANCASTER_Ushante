@@ -1,24 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     private int _score;                          // Players score
+
     private bool _isGameOver = false;            // Flag to track the game state 
 
     [SerializeField] ScoreHandler scoreHandler;             // Reference to the ScoreHandler script, will use more later
     [SerializeField] PhotographHandler photographHandler;   // Reference to the PhotographHandler script
     [SerializeField] PlayerInputHandler playerInputHandler; // Reference to the PlayerInputHandler script
     [SerializeField] FeedbackHandler feedbackHandler;       // Reference to the FeedbackHandler script
-
-    [SerializeField] private GameObject ArtTitle; // UI title gameobject (with different title children)
+    [SerializeField] TitleHandler titleHandler;
 
     // Start is called before the first frame update
     void Start()
     {
         // 'Start Game' function  reference
         PlayGame();
+        titleHandler.selectedTitle = 0;
     }
 
     // Update is called once per frame
@@ -27,6 +29,8 @@ public class GameManager : MonoBehaviour
         // Check that the player has answered 
         if (scoreHandler.HasAnswered())
         {
+            // Set the current title
+            titleHandler.SetActiveTitle();
             CorrectAnswer();
             IncorrectAnswer();
         }
@@ -42,8 +46,6 @@ public class GameManager : MonoBehaviour
                 EndGame();
             }
         }
-
-        // Call from the players input (from playerinputhandler)
     }
 
 
@@ -88,18 +90,15 @@ public class GameManager : MonoBehaviour
         // Check if the correct answer has been made (get from scorehandler)
         if (scoreHandler.IsCorrectAnswer())
         {
-            //Debug.Log("correct answer chosen");
-
-            // Enable the UI ArtTitle ThisisArtTitle (disable all others)
-
+            Debug.Log("correct answer chosen");
+            
             // Change position of the Art item (to pos2)
 
             // Display art fact or description, this will use the artfacts database later developed
-            feedbackHandler.UpdateFeedback();
+            //feedbackHandler.UpdateFeedback();
 
             LoadPhotograph();
         }
-        
     }
 
     // Handle incorrect answer
@@ -108,14 +107,12 @@ public class GameManager : MonoBehaviour
         // Check if the incorrect answer has been made (get from scorehandler)
         if (!scoreHandler.IsCorrectAnswer())
         {
-            //Debug.Log("incorrect answer chosen");
-
-            // Enable the UI ArtTitle child ThisIsntArtTitle (disable all others)
+            Debug.Log("incorrect answer chosen");
 
             // Change position of the Art item (to pos2)
 
             // Display information about the object
-            feedbackHandler.UpdateFeedback();
+            //feedbackHandler.UpdateFeedback();
 
             LoadPhotograph();
         }
@@ -136,4 +133,5 @@ public class GameManager : MonoBehaviour
         }
         return false;
     }
+
 }

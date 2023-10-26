@@ -123,6 +123,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &32823113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 32823114}
+  - component: {fileID: 32823115}
+  m_Layer: 0
+  m_Name: TitleHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &32823114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32823113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 478517399}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &32823115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32823113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a447e5e4c2f526f428139497ea79c933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ArtTitle: {fileID: 645417386}
+  selectedTitle: 0
 --- !u!1 &108036257
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +359,7 @@ MonoBehaviour:
   photographHandler: {fileID: 915209531}
   playerInputHandler: {fileID: 755175116}
   feedbackHandler: {fileID: 222478953}
-  ArtTitle: {fileID: 645417386}
+  titleHandler: {fileID: 32823115}
 --- !u!114 &373041339 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 17412076253472247, guid: 3828014830fde314ab97839bde8abe61, type: 3}
@@ -375,6 +421,7 @@ Transform:
   - {fileID: 230170398}
   - {fileID: 755175115}
   - {fileID: 222478952}
+  - {fileID: 32823114}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
@@ -1018,6 +1065,7 @@ MonoBehaviour:
   _artImageObject: {fileID: 1093116489}
   scoreHandler: {fileID: 1095222675}
   playerInputHandler: {fileID: 755175116}
+  titleHandler: {fileID: 32823115}
   isArtwork: 0
 --- !u!1 &1019972505
 GameObject:

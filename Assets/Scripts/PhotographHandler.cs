@@ -11,7 +11,8 @@ public class PhotographHandler : MonoBehaviour
  
     [SerializeField] private GameObject _artImageObject;   // Reference to ArtImage gameobject
     [SerializeField] ScoreHandler scoreHandler;            // Reference to the ScoreHandler script
-    [SerializeField] PlayerInputHandler playerInputHandler; 
+    [SerializeField] PlayerInputHandler playerInputHandler;
+    [SerializeField] TitleHandler titleHandler; 
 
     public bool isArtwork; // bool to check if the item is an artwork or not
     private PhotographSO _currentItem;
@@ -41,6 +42,16 @@ public class PhotographHandler : MonoBehaviour
 
             // Display the selected image
             DisplayImage(nextItem.Image);
+
+            // Set which title should be displayed
+            if (isArtwork)
+            {
+                titleHandler.selectedTitle = 1;
+            }
+            else
+            {
+                titleHandler.selectedTitle = 2;
+            }
 
             // Set Score handler has answered to false
             scoreHandler.resetAnswering();
