@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
+using TMPro;
 using UnityEngine;
 
 public class ScoreHandler : MonoBehaviour
@@ -17,10 +16,13 @@ public class ScoreHandler : MonoBehaviour
 
     public bool hasAnswered = false;       // Has the player answered
 
+    [SerializeField] private TMP_Text _scoreText;
+
     // Initialize players score (set score as 0)
     private void Start()
     {
         _playerScore = 0;
+        UpdateScoreText();
     }
 
     // update the players score (this will depend on the playerinputhandler)
@@ -35,6 +37,7 @@ public class ScoreHandler : MonoBehaviour
             {
                 _playerScore++;
                 Debug.Log("Player Score: " + _playerScore);
+                UpdateScoreText();
                 _isCorrectAnswer = true;
                 hasAnswered = true;
             } 
@@ -67,5 +70,10 @@ public class ScoreHandler : MonoBehaviour
     public void resetAnswering()
     {
         hasAnswered = false;
+    }
+
+    public void UpdateScoreText()
+    {
+        _scoreText.text = "Score: " + _playerScore;
     }
 }

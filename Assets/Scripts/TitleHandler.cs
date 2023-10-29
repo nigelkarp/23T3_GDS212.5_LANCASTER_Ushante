@@ -5,6 +5,7 @@ using UnityEngine;
 public class TitleHandler : MonoBehaviour
 {
     [SerializeField] private GameObject ArtTitle; // UI title gameobject (with different title children)
+    [SerializeField] private GameObject _nextImageTitle;  // Next Image button
 
     [SerializeField] PhotographHandler photographHandler;
 
@@ -24,6 +25,9 @@ public class TitleHandler : MonoBehaviour
 
             thisIsArtTitle.gameObject.SetActive(false);
             thisIsntArtTitle.gameObject.SetActive(false);
+
+            NextImageTitleOff();
+            
         }
 
         //IF the item is an artwork title
@@ -33,6 +37,8 @@ public class TitleHandler : MonoBehaviour
 
             isThisArtTitle.gameObject.SetActive(false);
             thisIsntArtTitle.gameObject.SetActive(false);
+
+            NextImageTitleOn();
         }
 
         // IF the item isnt an artwork title
@@ -43,6 +49,7 @@ public class TitleHandler : MonoBehaviour
             thisIsArtTitle.gameObject.SetActive(false);
             isThisArtTitle.gameObject.SetActive(false);
 
+            NextImageTitleOn();
         }
     }
 
@@ -57,6 +64,16 @@ public class TitleHandler : MonoBehaviour
         {
             ThisIsntArtTitle();
         }
+    }
+
+    public void NextImageTitleOff()
+    {
+        _nextImageTitle.gameObject.SetActive(false);
+    }
+
+    private void NextImageTitleOn()
+    {
+        _nextImageTitle.gameObject.SetActive(true) ;
     }
 
     public void ResetTitle()
