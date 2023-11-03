@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] FeedbackHandler feedbackHandler;       // Reference to the FeedbackHandler script
     [SerializeField] TitleHandler titleHandler;
 
+    [SerializeField] private GameObject _gameOverUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,8 @@ public class GameManager : MonoBehaviour
         PlayGame();
         titleHandler.ResetTitle();
         titleHandler.NextImageTitleOff();
+        photographHandler._imageCentred = true;
+        _gameOverUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -61,17 +65,11 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("game over");
 
-        // Display the final score and feedback
-        // Calculate whether the player is qualified to be a curator
-        // (this can be done with score + predetermined thresholds)
-        // Threshold hit = feedback given
+        // throw up game over screen
+        _gameOverUI.SetActive(true);
 
-        // Update the scorehandler with the final score or call from the score handler
-        // scoreHandler.UpdateScore(score);
-
-        // Display feedback based on the final score
-        // DisplayFeedback();
-
+        // Change score UI
+        scoreHandler.UpdateFinalScore();
     }
 
     // Load and display the next photograph
@@ -80,9 +78,24 @@ public class GameManager : MonoBehaviour
         if (playerInputHandler.GetNextItemClick())
         {
             titleHandler.ResetTitle();
+            feedbackHandler.RemoveFeedback();
             photographHandler.LoadNextPhotograph();
+
+            if (!photographHandler._imageCentred)
+            {
+                photographHandler._imageCentred = true;
+                photographHandler.ChangeImagePosition();
+            }
         }
-        //Change has answered to false in the photograph handler
+    }
+
+    void MoveImageToSide()
+    {
+        if (photographHandler._imageCentred)
+        {
+            photographHandler._imageCentred = false;
+            photographHandler.ChangeImagePosition();
+        }
     }
 
     // Handle a correct answer
@@ -91,13 +104,11 @@ public class GameManager : MonoBehaviour
         // Check if the correct answer has been made (get from scorehandler)
         if (scoreHandler.IsCorrectAnswer())
         {
-            // Call function that checks if its an artwork or not
-            
             // Change position of the Art item (to pos2)
+            MoveImageToSide();
 
-            // Display art fact or description, this will use the artfacts database later developed
-            //feedbackHandler.UpdateFeedback();
-
+            // Display art fact or description
+            feedbackHandler.UpdateFeedback();
             LoadPhotograph();
         }
     }
@@ -109,18 +120,13 @@ public class GameManager : MonoBehaviour
         if (!scoreHandler.IsCorrectAnswer())
         {
             // Change position of the Art item (to pos2)
+            MoveImageToSide();
 
             // Display information about the object
-            //feedbackHandler.UpdateFeedback();
-
+            feedbackHandler.UpdateFeedback();
             LoadPhotograph();
         }
     }
-
-    //void DisplayAboutItem()
-    //{
-    //    feedbackHandler.UpdateFeedback();
-    //}
 
     // Game over conditions will be set here
     bool GameOverConditionsMet()

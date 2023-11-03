@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: True2
   m_EditorClassIdentifier: 
   Image: {fileID: 21300000, guid: 9e560b1927849d34cb892290eede03d3, type: 3}
-  Fact: Yadda Yadda
+  Fact: '"MoMA Poll" by Hans Haacke engages viewers in a political discourse by inviting
+    them to vote, blurring the lines between art, politics, and audience participation.'
   IsArt: 1

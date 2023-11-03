@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: True4
   m_EditorClassIdentifier: 
   Image: {fileID: 21300000, guid: b19f75e3d1ccd83418803b98fd9d41a2, type: 3}
-  Fact: Yadda Yadda
+  Fact: Cameron Rowland's "Readymade from 91020000" challenges notions of value,
+    history, and ownership by recontextualizing everyday objects, drawing inspiration
+    from Marcel Duchamp's readymades.
   IsArt: 1

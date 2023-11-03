@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: False4
   m_EditorClassIdentifier: 
   Image: {fileID: 21300000, guid: 5357a8471aa2eb34199e10d5248b1f3a, type: 3}
-  Fact: Yadda Yadda
+  Fact: 'This is a photo taken inside a car in a carwash. Accidental art? '
   IsArt: 0

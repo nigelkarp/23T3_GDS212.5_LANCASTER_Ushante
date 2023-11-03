@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: True6
   m_EditorClassIdentifier: 
   Image: {fileID: 21300000, guid: 21d820877eb698845a14fdbf71f14e03, type: 3}
-  Fact: Yadda Yadda
+  Fact: 'Marcel Duchamp''s "Bicycle Wheel" is a recreation of his groundbreaking
+    1913 readymade, consisting of an inverted bicycle wheel on a stool, questioning
+    traditional art conventions and the artist''s role.     '
   IsArt: 1

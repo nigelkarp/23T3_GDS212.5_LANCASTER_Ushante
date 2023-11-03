@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: False6
   m_EditorClassIdentifier: 
   Image: {fileID: 21300000, guid: 9960c54b71330754d96a7db51a608528, type: 3}
-  Fact: Yadda Yadda
+  Fact: "Although the Swedish may disagree, this is just a FR\xC4CK (fancy ikea mirror)."
   IsArt: 0

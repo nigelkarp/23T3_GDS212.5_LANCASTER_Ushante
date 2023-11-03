@@ -17,6 +17,7 @@ public class ScoreHandler : MonoBehaviour
     public bool hasAnswered = false;       // Has the player answered
 
     [SerializeField] private TMP_Text _scoreText;
+    [SerializeField] private TMP_Text _finalScoreText;
 
     // Initialize players score (set score as 0)
     private void Start()
@@ -75,5 +76,10 @@ public class ScoreHandler : MonoBehaviour
     public void UpdateScoreText()
     {
         _scoreText.text = "Score: " + _playerScore;
+    }
+
+    public void UpdateFinalScore()
+    {
+        _finalScoreText.text = "Score: " + _playerScore;
     }
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: False2
   m_EditorClassIdentifier: 
   Image: {fileID: 21300000, guid: a5a12bd23a45ba04fb69a17a8012b049, type: 3}
-  Fact: Yadda Yadda
+  Fact: This is an accessibility toilet.
   IsArt: 0

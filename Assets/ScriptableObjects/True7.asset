@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: True7
   m_EditorClassIdentifier: 
   Image: {fileID: 21300000, guid: cdf5437cd6e8a90499587bd8def98403, type: 3}
-  Fact: Duchamp's 'The Fountain' is a groundbreaking 1917 artwork, consisting of
-    a urinal signed 'R. Mutt,' challenging traditional notions of art and questioning
-    the concept of authorship.
+  Fact: Marcel Duchamp's "Fountain" (1917) challenges conventional art by transforming
+    a urinal into a thought-provoking artwork, igniting discussions about art's nature.
   IsArt: 1

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: True3
   m_EditorClassIdentifier: 
   Image: {fileID: 21300000, guid: 18a3e5aa8e0aa61418c03d3fec431c7c, type: 3}
-  Fact: Yadda Yadda
+  Fact: "Mike Kelley\u2019s \u201CArena #7 (Bears)\u201D explores memory and nostalgia
+    through cultural references, delving into the impact of imagery on our perceptions."
   IsArt: 1

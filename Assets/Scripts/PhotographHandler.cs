@@ -7,14 +7,18 @@ public class PhotographHandler : MonoBehaviour
     [SerializeField] private List<PhotographSO> _itemList; // List of Scriptable Objects
 
     List<PhotographSO> displayedItem = new List<PhotographSO>();
-
  
     [SerializeField] private GameObject _artImageObject;   // Reference to ArtImage gameobject
+    
+    [SerializeField] private Transform _position1;
+    [SerializeField] private Transform _position2;
+
     [SerializeField] ScoreHandler scoreHandler;            // Reference to the ScoreHandler script
     [SerializeField] PlayerInputHandler playerInputHandler;
-    [SerializeField] TitleHandler titleHandler; 
+    [SerializeField] TitleHandler titleHandler;
 
     public bool isArtwork; // bool to check if the item is an artwork or not
+    public bool _imageCentred;  // bool to change the image position
     private PhotographSO _currentItem;
     
     // Method to load the next photograph based on the game state
@@ -81,6 +85,21 @@ public class PhotographHandler : MonoBehaviour
             return null;
         }
         return null;
+    }
+
+    // Change image position
+    public void ChangeImagePosition()
+    {
+        if (_imageCentred)
+        {
+            // Set image position to position 1 (default)
+            _artImageObject.transform.position = _position1.position;
+        }
+        else if (!_imageCentred)
+        {
+            // Set image pos to position 2 (off to the side)
+            _artImageObject.transform.position = _position2.position;
+        }
     }
 
     // Display Image
